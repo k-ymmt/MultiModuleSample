@@ -1,0 +1,16 @@
+//
+//  build.xcconfig
+//  Core
+//
+//  Created by Kazuki Yamamoto on 2019/12/08.
+//  Copyright © 2019 Kazuki Yamamoto. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../Pods/Target Support Files/Pods-Core/Pods-Core.release.xcconfig"
+
+PODS_ROOT = $(SRCROOT)/../Pods
+PODS_BUILD_DIR = $(PODS_ROOT)/Build
+PODS_CONFIGURATION_BUILD_DIR = $(PODS_BUILD_DIR)/Release$(EFFECTIVE_PLATFORM_NAME)

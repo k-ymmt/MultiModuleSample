@@ -50,6 +50,7 @@
 		02339214239CF6C200EDB419 /* HogeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HogeService.swift; sourceTree = "<group>"; };
 		02339217239CF6CF00EDB419 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		02339228239CF9C500EDB419 /* AppConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigurator.swift; sourceTree = "<group>"; };
+		0233929A239D318400EDB419 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +98,7 @@
 				02339213239CF6BA00EDB419 /* Services */,
 				0233917D239CF50C00EDB419 /* Core.h */,
 				0233917E239CF50C00EDB419 /* Info.plist */,
+				0233929A239D318400EDB419 /* build.xcconfig */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -264,6 +266,7 @@
 /* Begin XCBuildConfiguration section */
 		0233918C239CF50C00EDB419 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0233929A239D318400EDB419 /* build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -327,6 +330,7 @@
 		};
 		0233918D239CF50C00EDB419 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0233929A239D318400EDB419 /* build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
