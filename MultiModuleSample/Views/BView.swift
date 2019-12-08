@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  BView.swift
 //  MultiModuleSample
 //
 //  Created by Kazuki Yamamoto on 2019/12/08.
@@ -7,15 +7,14 @@
 //
 
 import SwiftUI
-
-struct ContentView: View {
+struct BView: View {
     var body: some View {
-        Text("Hello World")
+        Text("B View")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct BView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BView()
     }
 }
