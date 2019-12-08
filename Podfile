@@ -1,7 +1,12 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 workspace 'MultiModuleSample.xcworkspace'
+
+install! 'cocoapods', generate_multiple_pod_projects: true, incremental_installation: true, integrate_targets: false
+
+inhibit_all_warnings!
+use_modular_headers!
 
 target 'Core' do
   project 'Core/Core.xcodeproj'
