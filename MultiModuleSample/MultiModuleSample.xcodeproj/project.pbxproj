@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -78,6 +78,7 @@
 		0233921C239CF74D00EDB419 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0233921D239CF74D00EDB419 /* ModuleA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ModuleA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0233921E239CF74D00EDB419 /* ModuleB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ModuleB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0233929B239D394100EDB419 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +127,7 @@
 				02339141239CF06800EDB419 /* LaunchScreen.storyboard */,
 				02339144239CF06800EDB419 /* Info.plist */,
 				0233913E239CF06800EDB419 /* Preview Content */,
+				0233929B239D394100EDB419 /* build.xcconfig */,
 			);
 			path = MultiModuleSample;
 			sourceTree = "<group>";
@@ -201,7 +203,6 @@
 			buildConfigurationList = 02339160239CF06800EDB419 /* Build configuration list for PBXNativeTarget "MultiModuleSampleTests" */;
 			buildPhases = (
 				02339145239CF06800EDB419 /* Sources */,
-				02339146239CF06800EDB419 /* Frameworks */,
 				02339147239CF06800EDB419 /* Resources */,
 			);
 			buildRules = (
@@ -219,7 +220,6 @@
 			buildConfigurationList = 02339163239CF06800EDB419 /* Build configuration list for PBXNativeTarget "MultiModuleSampleUITests" */;
 			buildPhases = (
 				02339150239CF06800EDB419 /* Sources */,
-				02339151239CF06800EDB419 /* Frameworks */,
 				02339152239CF06800EDB419 /* Resources */,
 			);
 			buildRules = (
@@ -358,6 +358,7 @@
 /* Begin XCBuildConfiguration section */
 		0233915B239CF06800EDB419 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0233929B239D394100EDB419 /* build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -418,6 +419,7 @@
 		};
 		0233915C239CF06800EDB419 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0233929B239D394100EDB419 /* build.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
