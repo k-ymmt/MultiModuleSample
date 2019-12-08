@@ -1,0 +1,14 @@
+//
+//  build.xcconfig
+//  MultiModuleSample
+//
+//  Created by Kazuki Yamamoto on 2019/12/08.
+//  Copyright © 2019 Kazuki Yamamoto. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "../Core/Core/build.xcconfig"
+
+OTHER_LDFLAGS = ""
