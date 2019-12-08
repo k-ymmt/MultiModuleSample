@@ -2,7 +2,19 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MultiModuleSample.xcodeproj">
+      location = "group:MultiModuleSample/MultiModuleSample.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ModuleA/ModuleA.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ModuleB/ModuleB.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core/Core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Common/Common.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

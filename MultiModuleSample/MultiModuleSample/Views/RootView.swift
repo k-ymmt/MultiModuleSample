@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+import Common
+import ModuleA
+import ModuleB
 
 struct RootView: View {
     private let service: HogeServiceProtocol
@@ -24,7 +27,10 @@ struct RootView: View {
 }
 
 struct RootView_Previews: PreviewProvider {
+    private struct DummyHogeService: HogeServiceProtocol {
+        let hogeString: String = "Dummy Hoge Service"
+    }
     static var previews: some View {
-        RootView(service: HogeService())
+        RootView(service: DummyHogeService())
     }
 }

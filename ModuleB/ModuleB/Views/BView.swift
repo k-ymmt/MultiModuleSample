@@ -1,15 +1,19 @@
 //
 //  BView.swift
-//  MultiModuleSample
+//  ModuleB
 //
 //  Created by Kazuki Yamamoto on 2019/12/08.
 //  Copyright © 2019 Kazuki Yamamoto. All rights reserved.
 //
 
 import SwiftUI
-struct BView: View {
-    var body: some View {
+
+public struct BView: View {
+    public var body: some View {
         Text("B View")
+    }
+    
+    public init() {
     }
 }
 
