@@ -12,7 +12,6 @@
 		0233918B239CF50C00EDB419 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 0233917D239CF50C00EDB419 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02339215239CF6C200EDB419 /* HogeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02339214239CF6C200EDB419 /* HogeService.swift */; };
 		02339218239CF6CF00EDB419 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02339217239CF6CF00EDB419 /* Common.framework */; };
-		02339219239CF6CF00EDB419 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02339217239CF6CF00EDB419 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02339229239CF9C500EDB419 /* AppConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02339228239CF9C500EDB419 /* AppConfigurator.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,20 +24,6 @@
 			remoteInfo = Core;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0233921A239CF6CF00EDB419 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				02339219239CF6CF00EDB419 /* Common.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0233917A239CF50C00EDB419 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +136,6 @@
 				02339176239CF50C00EDB419 /* Sources */,
 				02339177239CF50C00EDB419 /* Frameworks */,
 				02339178239CF50C00EDB419 /* Resources */,
-				0233921A239CF6CF00EDB419 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
