@@ -12,7 +12,6 @@
 		023391D3239CF53900EDB419 /* ModuleB.h in Headers */ = {isa = PBXBuildFile; fileRef = 023391C5239CF53900EDB419 /* ModuleB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0233920D239CF67200EDB419 /* BView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0233920C239CF67200EDB419 /* BView.swift */; };
 		02339210239CF69D00EDB419 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233920F239CF69D00EDB419 /* Common.framework */; };
-		02339211239CF69D00EDB419 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0233920F239CF69D00EDB419 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,20 +23,6 @@
 			remoteInfo = ModuleB;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		02339212239CF69D00EDB419 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				02339211239CF69D00EDB419 /* Common.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		023391C2239CF53900EDB419 /* ModuleB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ModuleB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,7 +131,6 @@
 				023391BE239CF53900EDB419 /* Sources */,
 				023391BF239CF53900EDB419 /* Frameworks */,
 				023391C0239CF53900EDB419 /* Resources */,
-				02339212239CF69D00EDB419 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
