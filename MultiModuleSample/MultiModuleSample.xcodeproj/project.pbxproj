@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,9 +20,7 @@
 		02339221239CF74D00EDB419 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921C239CF74D00EDB419 /* Core.framework */; };
 		02339222239CF74D00EDB419 /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921C239CF74D00EDB419 /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02339223239CF74D00EDB419 /* ModuleA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921D239CF74D00EDB419 /* ModuleA.framework */; };
-		02339224239CF74D00EDB419 /* ModuleA.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921D239CF74D00EDB419 /* ModuleA.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02339225239CF74D00EDB419 /* ModuleB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921E239CF74D00EDB419 /* ModuleB.framework */; };
-		02339226239CF74D00EDB419 /* ModuleB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0233921E239CF74D00EDB419 /* ModuleB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +47,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				02339224239CF74D00EDB419 /* ModuleA.framework in Embed Frameworks */,
-				02339226239CF74D00EDB419 /* ModuleB.framework in Embed Frameworks */,
 				02339220239CF74D00EDB419 /* Common.framework in Embed Frameworks */,
 				02339222239CF74D00EDB419 /* Core.framework in Embed Frameworks */,
 			);
@@ -80,6 +76,7 @@
 		0233921E239CF74D00EDB419 /* ModuleB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ModuleB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0233929B239D394100EDB419 /* build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = build.xcconfig; sourceTree = "<group>"; };
 		025B6B3C23A4E34F008FD751 /* dynamic_libraries.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = dynamic_libraries.xcfilelist; sourceTree = "<group>"; };
+		025B6B5023A613F7008FD751 /* dynamic_libraries_debug_only.xcfilelist */ = {isa = PBXFileReference; lastKnownFileType = text.xcfilelist; path = dynamic_libraries_debug_only.xcfilelist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +127,7 @@
 				0233913E239CF06800EDB419 /* Preview Content */,
 				0233929B239D394100EDB419 /* build.xcconfig */,
 				025B6B3C23A4E34F008FD751 /* dynamic_libraries.xcfilelist */,
+				025B6B5023A613F7008FD751 /* dynamic_libraries_debug_only.xcfilelist */,
 			);
 			path = MultiModuleSample;
 			sourceTree = "<group>";
@@ -190,7 +188,8 @@
 				02339130239CF06600EDB419 /* Frameworks */,
 				02339131239CF06600EDB419 /* Resources */,
 				02339227239CF74D00EDB419 /* Embed Frameworks */,
-				025B6B3823A4DE05008FD751 /* Copy Dynamic Libraries */,
+				025B6B5523A61FA9008FD751 /* Copy Dynamic Libraries */,
+				025B6B5123A61438008FD751 /* Copy Dynamic Libraries(Debug only) */,
 			);
 			buildRules = (
 			);
@@ -306,7 +305,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		025B6B3823A4DE05008FD751 /* Copy Dynamic Libraries */ = {
+		025B6B5123A61438008FD751 /* Copy Dynamic Libraries(Debug only) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/$(TARGET_NAME)/dynamic_libraries_debug_only.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Copy Dynamic Libraries(Debug only)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nif [ ${CONFIGURATION} != 'Debug' ];then\n    exit 0\nfi\n\ncode_sign() {\n  # Use the current code_sign_identitiy\n  echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n  echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n  /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\nif [ \"$ACTION\" = \"install\" ]; then\n  echo \"Copy .bcsymbolmap files to .xcarchive\"\n  find . -name '*.bcsymbolmap' -type f -exec mv {} \"${CONFIGURATION_BUILD_DIR}\" \\;\nfi\n\necho 'Copying frameworks'\n\nls \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/\" || mkdir \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\n\nif [ $SCRIPT_INPUT_FILE_LIST_COUNT -ne 0 ]; then\n  for i in $(seq 0 $(expr $SCRIPT_INPUT_FILE_LIST_COUNT - 1)); do\n    inputFileListVar=\"SCRIPT_INPUT_FILE_LIST_${i}\"\n    inputFileList=\"${!inputFileListVar}\"\n    cat \"${inputFileList}\" | while read inputFile; do\n      cp -rf \"$inputFile\" \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\n\n      for file in $(find ${inputFile} -type f -perm +111); do\n        # Skip non-dynamic libraries\n        if ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\n          continue\n        fi\n        if [ \"${CODE_SIGNING_REQUIRED}\" = \"YES\" ]; then\n          code_sign \"${file}\"\n        fi\n      done\n    done\n  done\nfi\n";
+		};
+		025B6B5523A61FA9008FD751 /* Copy Dynamic Libraries */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
